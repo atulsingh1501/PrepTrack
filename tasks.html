@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrepTrack — Daily Tasks</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+
+  <nav class="nav">
+    <span class="nav-brand"><span class="dot"></span>PrepTrack</span>
+    <a class="nav-tab" href="index.html">Dashboard</a>
+    <a class="nav-tab" href="leetcode.html">LeetCode</a>
+    <a class="nav-tab" href="skills.html">Skills &amp; Git</a>
+    <a class="nav-tab active" href="tasks.html">Daily Tasks</a>
+    <a class="nav-tab" href="resources.html">Resources</a>
+    <a class="nav-tab" href="goals.html">Goals</a>
+  </nav>
+
+  <main class="page active">
+    <div class="grid2">
+
+      <!-- Today's Tasks -->
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+          <div class="section-title" style="margin:0">Today's Tasks</div>
+          <span class="badge badge-green" id="task-count">2 / 5 done</span>
+        </div>
+
+        <div id="task-list">
+          <div class="reminder-item done" onclick="toggleTask(this)">
+            <div class="check checked"></div>
+            <div>
+              <div class="reminder-text">Solve 2 LeetCode Medium problems</div>
+              <div class="reminder-meta">DSA • 9:00 AM</div>
+            </div>
+          </div>
+          <div class="reminder-item done" onclick="toggleTask(this)">
+            <div class="check checked"></div>
+            <div>
+              <div class="reminder-text">Review Binary Search concepts</div>
+              <div class="reminder-meta">DSA • 10:30 AM</div>
+            </div>
+          </div>
+          <div class="reminder-item" onclick="toggleTask(this)">
+            <div class="check"></div>
+            <div>
+              <div class="reminder-text">Read OS notes — Deadlocks chapter</div>
+              <div class="reminder-meta">Core CS • 2:00 PM</div>
+            </div>
+          </div>
+          <div class="reminder-item" onclick="toggleTask(this)">
+            <div class="check"></div>
+            <div>
+              <div class="reminder-text">Push today's code to GitHub</div>
+              <div class="reminder-meta">Git • 6:00 PM</div>
+            </div>
+          </div>
+          <div class="reminder-item" onclick="toggleTask(this)">
+            <div class="check"></div>
+            <div>
+              <div class="reminder-text">Mock interview — 1 behavioural question</div>
+              <div class="reminder-meta">Interview Prep • 7:00 PM</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <input class="inp" id="task-inp" placeholder="New task..." />
+          <button class="btn" onclick="addTask()">Add</button>
+        </div>
+      </div>
+
+      <!-- Weekly Overview + Reminders -->
+      <div class="card">
+        <div class="section-title">Weekly Overview</div>
+        <div id="week-bars"></div>
+
+        <div style="margin-top:1.25rem">
+          <div class="section-title">Reminders Set</div>
+
+          <div class="reminder-pill">
+            <div class="reminder-pill-icon" style="background:#1a2040">⏰</div>
+            <div>
+              <div style="font-size:13px;font-weight:500">Daily DSA at 9:00 AM</div>
+              <div style="font-size:11px;color:var(--c-muted)">Every day • Active</div>
+            </div>
+            <span class="badge badge-green" style="margin-left:auto">ON</span>
+          </div>
+
+          <div class="reminder-pill">
+            <div class="reminder-pill-icon" style="background:#2a1a1a">📖</div>
+            <div>
+              <div style="font-size:13px;font-weight:500">Core CS Review at 2:00 PM</div>
+              <div style="font-size:11px;color:var(--c-muted)">Weekdays • Active</div>
+            </div>
+            <span class="badge badge-green" style="margin-left:auto">ON</span>
+          </div>
+
+          <div class="reminder-pill">
+            <div class="reminder-pill-icon" style="background:#1a2a1a">🚀</div>
+            <div>
+              <div style="font-size:13px;font-weight:500">GitHub commit at 6:00 PM</div>
+              <div style="font-size:11px;color:var(--c-muted)">Every day • Active</div>
+            </div>
+            <span class="badge badge-green" style="margin-left:auto">ON</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  buildWeekBars('week-bars', [4, 3, 5, 2, 5, 3, 0]);
+</script>
+</body>
+</html>

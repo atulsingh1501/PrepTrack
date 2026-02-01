@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrepTrack — Goals</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+
+  <nav class="nav">
+    <span class="nav-brand"><span class="dot"></span>PrepTrack</span>
+    <a class="nav-tab" href="index.html">Dashboard</a>
+    <a class="nav-tab" href="leetcode.html">LeetCode</a>
+    <a class="nav-tab" href="skills.html">Skills &amp; Git</a>
+    <a class="nav-tab" href="tasks.html">Daily Tasks</a>
+    <a class="nav-tab" href="resources.html">Resources</a>
+    <a class="nav-tab active" href="goals.html">Goals</a>
+  </nav>
+
+  <main class="page active">
+    <div class="grid2">
+
+      <!-- Goal List -->
+      <div class="card">
+        <div class="section-title">Placement Goals</div>
+
+        <div class="goal-row">
+          <div class="goal-icon" style="background:#1a3d2e">🎯</div>
+          <div class="goal-info">
+            <div class="goal-name">LeetCode — 200 problems</div>
+            <div class="goal-sub">124 / 200 solved</div>
+            <div class="progress-wrap"><div class="progress-bar bar-green" style="width:62%"></div></div>
+          </div>
+          <span class="badge badge-green">62%</span>
+        </div>
+
+        <div class="goal-row">
+          <div class="goal-icon" style="background:#1e1a40">📐</div>
+          <div class="goal-info">
+            <div class="goal-name">System Design — 10 case studies</div>
+            <div class="goal-sub">3 / 10 completed</div>
+            <div class="progress-wrap"><div class="progress-bar bar-purple" style="width:30%"></div></div>
+          </div>
+          <span class="badge badge-purple">30%</span>
+        </div>
+
+        <div class="goal-row">
+          <div class="goal-icon" style="background:#3a2e0d">🚀</div>
+          <div class="goal-info">
+            <div class="goal-name">Complete 3 projects on GitHub</div>
+            <div class="goal-sub">2 / 3 done</div>
+            <div class="progress-wrap"><div class="progress-bar bar-amber" style="width:67%"></div></div>
+          </div>
+          <span class="badge badge-amber">67%</span>
+        </div>
+
+        <div class="goal-row">
+          <div class="goal-icon" style="background:#1a2040">📄</div>
+          <div class="goal-info">
+            <div class="goal-name">Resume — final draft ready</div>
+            <div class="goal-sub">In progress</div>
+            <div class="progress-wrap"><div class="progress-bar bar-purple" style="width:50%"></div></div>
+          </div>
+          <span class="badge badge-amber">50%</span>
+        </div>
+
+        <div class="goal-row">
+          <div class="goal-icon" style="background:#3a1020">🎙️</div>
+          <div class="goal-info">
+            <div class="goal-name">Mock Interviews — 20 sessions</div>
+            <div class="goal-sub">6 / 20 done</div>
+            <div class="progress-wrap"><div class="progress-bar bar-red" style="width:30%"></div></div>
+          </div>
+          <span class="badge badge-red">30%</span>
+        </div>
+
+      </div>
+
+      <!-- Readiness + Forecast -->
+      <div class="card">
+        <div class="section-title">Overall Placement Readiness</div>
+
+        <div class="ring-wrap">
+          <svg class="ring" width="160" height="160" viewBox="0 0 160 160">
+            <circle cx="80" cy="80" r="64" fill="none" stroke="#2e2e3e" stroke-width="14"/>
+            <circle cx="80" cy="80" r="64" fill="none" stroke="url(#ringGrad)" stroke-width="14"
+              stroke-linecap="round" stroke-dasharray="402" stroke-dashoffset="153"
+              transform="rotate(-90 80 80)"/>
+            <defs>
+              <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%"   stop-color="#22d3a0"/>
+                <stop offset="100%" stop-color="#6c63ff"/>
+              </linearGradient>
+            </defs>
+            <text x="80" y="76" text-anchor="middle" fill="#e8e8f0"
+              font-size="28" font-weight="600" font-family="Space Grotesk">62%</text>
+            <text x="80" y="96" text-anchor="middle" fill="#8888a0"
+              font-size="12" font-family="Space Grotesk">Ready</text>
+          </svg>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem">
+          <div class="card-sm">
+            <div class="stat-label">Target Companies</div>
+            <div class="stat-val" style="font-size:20px">5</div>
+          </div>
+          <div class="card-sm">
+            <div class="stat-label">Days to Season</div>
+            <div class="stat-val" style="font-size:20px;color:var(--c-amber)">48</div>
+          </div>
+        </div>
+
+        <div class="ai-box">
+          <div class="ai-label">FORECAST</div>
+          <div class="ai-suggest" style="font-size:12px">
+            At current pace, you'll reach <strong>80% readiness</strong> in ~3 weeks.
+            Focus on <strong>Mock Interviews</strong> and <strong>System Design</strong> for max impact.
+          </div>
+        </div>
+
+        <div style="margin-top:1rem">
+          <button class="btn" style="width:100%">+ Add New Goal</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

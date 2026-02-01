@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrepTrack — Resources</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+
+  <nav class="nav">
+    <span class="nav-brand"><span class="dot"></span>PrepTrack</span>
+    <a class="nav-tab" href="index.html">Dashboard</a>
+    <a class="nav-tab" href="leetcode.html">LeetCode</a>
+    <a class="nav-tab" href="skills.html">Skills &amp; Git</a>
+    <a class="nav-tab" href="tasks.html">Daily Tasks</a>
+    <a class="nav-tab active" href="resources.html">Resources</a>
+    <a class="nav-tab" href="goals.html">Goals</a>
+  </nav>
+
+  <main class="page active">
+    <div class="grid2">
+
+      <!-- PDFs List -->
+      <div class="card">
+        <div class="section-title">PDFs &amp; Notes</div>
+
+        <div id="pdf-list">
+          <div class="pdf-item">
+            <div class="pdf-icon">PDF</div>
+            <div style="flex:1">
+              <div style="font-size:13px;font-weight:500">System Design Interview Guide</div>
+              <div style="font-size:11px;color:var(--c-muted)">42 pages • Added 3 days ago</div>
+            </div>
+            <span class="badge badge-purple">Design</span>
+          </div>
+          <div class="pdf-item">
+            <div class="pdf-icon">PDF</div>
+            <div style="flex:1">
+              <div style="font-size:13px;font-weight:500">Top 50 Java Interview Questions</div>
+              <div style="font-size:11px;color:var(--c-muted)">18 pages • Added 1 week ago</div>
+            </div>
+            <span class="badge badge-amber">Java</span>
+          </div>
+          <div class="pdf-item">
+            <div class="pdf-icon">PDF</div>
+            <div style="flex:1">
+              <div style="font-size:13px;font-weight:500">DBMS Concepts &amp; SQL Cheatsheet</div>
+              <div style="font-size:11px;color:var(--c-muted)">12 pages • Added 2 weeks ago</div>
+            </div>
+            <span class="badge badge-green">DBMS</span>
+          </div>
+          <div class="pdf-item">
+            <div class="pdf-icon">PDF</div>
+            <div style="flex:1">
+              <div style="font-size:13px;font-weight:500">OS Notes — Memory &amp; Scheduling</div>
+              <div style="font-size:11px;color:var(--c-muted)">22 pages • Added 5 days ago</div>
+            </div>
+            <span class="badge badge-red">OS</span>
+          </div>
+          <div class="pdf-item">
+            <div class="pdf-icon">PDF</div>
+            <div style="flex:1">
+              <div style="font-size:13px;font-weight:500">CN — Networking Fundamentals</div>
+              <div style="font-size:11px;color:var(--c-muted)">15 pages • Added 1 week ago</div>
+            </div>
+            <span class="badge badge-purple">CN</span>
+          </div>
+        </div>
+
+        <button class="btn-sm" style="margin-top:8px;width:100%">+ Add PDF / Resource</button>
+      </div>
+
+      <!-- Prep Notes -->
+      <div class="card">
+        <div class="section-title">Prep Notes</div>
+
+        <div class="tabs-inner">
+          <span class="itab active" onclick="switchNote(this,'dsa')">DSA</span>
+          <span class="itab" onclick="switchNote(this,'cs')">Core CS</span>
+          <span class="itab" onclick="switchNote(this,'hr')">HR</span>
+        </div>
+
+        <div id="note-dsa">
+          <div style="font-size:12px;color:var(--c-muted);margin-bottom:6px">My notes on DSA topics:</div>
+          <textarea class="note-area" placeholder="Write your DSA notes here...">Binary Search: Always check lo &lt;= hi. Mid = lo + (hi-lo)/2 to avoid overflow.
+Sliding Window: Use for subarray/substring problems. Track window state.
+Prefix Sum: Precompute for range sum queries in O(1).
+Revisit: DP on trees, Segment Trees</textarea>
+        </div>
+
+        <div id="note-cs" style="display:none">
+          <textarea class="note-area" placeholder="Core CS notes...">OS: Deadlock conditions — Mutual exclusion, Hold &amp; wait, No preemption, Circular wait.
+DBMS: ACID properties. Normalization — 1NF, 2NF, 3NF, BCNF.
+CN: TCP vs UDP. OSI model — 7 layers. HTTP vs HTTPS.</textarea>
+        </div>
+
+        <div id="note-hr" style="display:none">
+          <textarea class="note-area" placeholder="HR/Behavioural notes...">Tell me about yourself: 30 sec intro — name, college, project, goal.
+Strength: Problem solving, quick learner.
+Weakness: Sometimes overthink — working on quick decision making.
+Why this company: Research company values, recent news.</textarea>
+        </div>
+
+        <div style="margin-top:1rem;display:flex;gap:8px">
+          <button class="btn-sm">Save Notes</button>
+          <button class="btn-sm">Export as PDF</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

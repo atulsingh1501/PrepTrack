@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrepTrack — LeetCode</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+
+  <nav class="nav">
+    <span class="nav-brand"><span class="dot"></span>PrepTrack</span>
+    <a class="nav-tab" href="index.html">Dashboard</a>
+    <a class="nav-tab active" href="leetcode.html">LeetCode</a>
+    <a class="nav-tab" href="skills.html">Skills &amp; Git</a>
+    <a class="nav-tab" href="tasks.html">Daily Tasks</a>
+    <a class="nav-tab" href="resources.html">Resources</a>
+    <a class="nav-tab" href="goals.html">Goals</a>
+  </nav>
+
+  <main class="page active">
+
+    <!-- Difficulty Stats -->
+    <div class="grid3" style="margin-bottom:1.25rem">
+      <div class="card-sm" style="text-align:center">
+        <div class="stat-label">Easy</div>
+        <div class="stat-val" style="color:var(--c-green)" id="lc-easy">62</div>
+        <div style="font-size:11px;color:var(--c-muted);margin-top:4px">/ 80 target</div>
+        <div class="progress-wrap"><div class="progress-bar bar-green" style="width:77%"></div></div>
+      </div>
+      <div class="card-sm" style="text-align:center">
+        <div class="stat-label">Medium</div>
+        <div class="stat-val" style="color:var(--c-amber)" id="lc-med">48</div>
+        <div style="font-size:11px;color:var(--c-muted);margin-top:4px">/ 100 target</div>
+        <div class="progress-wrap"><div class="progress-bar bar-amber" style="width:48%"></div></div>
+      </div>
+      <div class="card-sm" style="text-align:center">
+        <div class="stat-label">Hard</div>
+        <div class="stat-val" style="color:var(--c-red)" id="lc-hard">14</div>
+        <div style="font-size:11px;color:var(--c-muted);margin-top:4px">/ 20 target</div>
+        <div class="progress-wrap"><div class="progress-bar bar-red" style="width:70%"></div></div>
+      </div>
+    </div>
+
+    <!-- Problem List -->
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+        <div class="section-title" style="margin:0">Recent Problems</div>
+        <select class="select" onchange="filterLeet(this.value)">
+          <option value="all">All</option>
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+      </div>
+
+      <div id="leet-list">
+        <div class="leet-row" data-diff="Medium">
+          <span class="diff diff-med">Medium</span>
+          <span style="flex:1">Longest Substring Without Repeating Characters</span>
+          <span class="badge badge-green">Solved</span>
+        </div>
+        <div class="leet-row" data-diff="Hard">
+          <span class="diff diff-hard">Hard</span>
+          <span style="flex:1">Median of Two Sorted Arrays</span>
+          <span class="badge badge-green">Solved</span>
+        </div>
+        <div class="leet-row" data-diff="Easy">
+          <span class="diff diff-easy">Easy</span>
+          <span style="flex:1">Valid Parentheses</span>
+          <span class="badge badge-green">Solved</span>
+        </div>
+        <div class="leet-row" data-diff="Medium">
+          <span class="diff diff-med">Medium</span>
+          <span style="flex:1">Coin Change</span>
+          <span class="badge badge-amber">Revisit</span>
+        </div>
+        <div class="leet-row" data-diff="Medium">
+          <span class="diff diff-med">Medium</span>
+          <span style="flex:1">Binary Tree Level Order Traversal</span>
+          <span class="badge badge-green">Solved</span>
+        </div>
+        <div class="leet-row" data-diff="Hard">
+          <span class="diff diff-hard">Hard</span>
+          <span style="flex:1">Trapping Rain Water</span>
+          <span class="badge badge-red">Pending</span>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <input class="inp" id="leet-inp" placeholder="Problem name..." />
+        <select class="select" id="leet-diff">
+          <option>Easy</option>
+          <option selected>Medium</option>
+          <option>Hard</option>
+        </select>
+        <button class="btn" onclick="addLeet()">Add</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrepTrack — Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <span class="nav-brand"><span class="dot"></span>PrepTrack</span>
+    <a class="nav-tab active" href="index.html">Dashboard</a>
+    <a class="nav-tab" href="leetcode.html">LeetCode</a>
+    <a class="nav-tab" href="skills.html">Skills &amp; Git</a>
+    <a class="nav-tab" href="tasks.html">Daily Tasks</a>
+    <a class="nav-tab" href="resources.html">Resources</a>
+    <a class="nav-tab" href="goals.html">Goals</a>
+  </nav>
+
+  <!-- DASHBOARD -->
+  <main class="page active">
+
+    <!-- Stats Row -->
+    <div class="grid4" style="margin-bottom:1rem">
+      <div class="card-sm">
+        <div class="stat-label">LeetCode Solved</div>
+        <div class="stat-val" id="lc-total">124</div>
+        <div class="stat-sub">+3 this week</div>
+      </div>
+      <div class="card-sm">
+        <div class="stat-label">Skills Mastered</div>
+        <div class="stat-val">8</div>
+        <div class="stat-sub">2 in progress</div>
+      </div>
+      <div class="card-sm">
+        <div class="stat-label">Daily Streak</div>
+        <div class="stat-val streak-grad" style="font-size:28px">14</div>
+        <div class="stat-sub">days active</div>
+      </div>
+      <div class="card-sm">
+        <div class="stat-label">Goal Progress</div>
+        <div class="stat-val">62%</div>
+        <div class="stat-sub">On track</div>
+      </div>
+    </div>
+
+    <!-- Topic Coverage + Heatmap -->
+    <div class="grid2" style="margin-bottom:1rem">
+
+      <div class="card">
+        <div class="section-title">Topic Coverage</div>
+        <div class="topic-row">
+          <span class="topic-name">Arrays &amp; Strings</span>
+          <div class="progress-wrap" style="flex:1"><div class="progress-bar bar-green" style="width:85%"></div></div>
+          <span class="topic-pct">85%</span>
+        </div>
+        <div class="topic-row">
+          <span class="topic-name">Dynamic Programming</span>
+          <div class="progress-wrap" style="flex:1"><div class="progress-bar bar-amber" style="width:45%"></div></div>
+          <span class="topic-pct">45%</span>
+        </div>
+        <div class="topic-row">
+          <span class="topic-name">Trees &amp; Graphs</span>
+          <div class="progress-wrap" style="flex:1"><div class="progress-bar bar-green" style="width:70%"></div></div>
+          <span class="topic-pct">70%</span>
+        </div>
+        <div class="topic-row">
+          <span class="topic-name">System Design</span>
+          <div class="progress-wrap" style="flex:1"><div class="progress-bar bar-purple" style="width:30%"></div></div>
+          <span class="topic-pct">30%</span>
+        </div>
+        <div class="topic-row">
+          <span class="topic-name">OS &amp; Networks</span>
+          <div class="progress-wrap" style="flex:1"><div class="progress-bar bar-purple" style="width:40%"></div></div>
+          <span class="topic-pct">40%</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Activity — last 6 months</div>
+        <div class="heatmap" id="heatmap"></div>
+        <div class="heatmap-legend">
+          <span>Less</span>
+          <div class="legend-cell h0"></div>
+          <div class="legend-cell h1"></div>
+          <div class="legend-cell h2"></div>
+          <div class="legend-cell h3"></div>
+          <div class="legend-cell h4"></div>
+          <span>More</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- AI Suggestion -->
+    <div class="ai-box">
+      <div class="ai-label">AI SUGGESTION</div>
+      <div class="ai-suggest">
+        Based on your progress: <strong>Dynamic Programming</strong> is your weakest area (45%).
+        Recommend solving 2–3 DP problems today — start with <em>Coin Change</em> and <em>Climbing Stairs</em>.
+        Your <strong>System Design</strong> is also low (30%), consider reading HLD of URL Shortener this week.
+        Keep up the <strong>14-day streak!</strong>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  buildHeatmap('heatmap');
+</script>
+</body>
+</html>

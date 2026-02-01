@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrepTrack — Skills &amp; Git</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+
+  <nav class="nav">
+    <span class="nav-brand"><span class="dot"></span>PrepTrack</span>
+    <a class="nav-tab" href="index.html">Dashboard</a>
+    <a class="nav-tab" href="leetcode.html">LeetCode</a>
+    <a class="nav-tab active" href="skills.html">Skills &amp; Git</a>
+    <a class="nav-tab" href="tasks.html">Daily Tasks</a>
+    <a class="nav-tab" href="resources.html">Resources</a>
+    <a class="nav-tab" href="goals.html">Goals</a>
+  </nav>
+
+  <main class="page active">
+    <div class="grid2">
+
+      <!-- Skills Panel -->
+      <div class="card">
+        <div class="section-title">Technical Skills</div>
+
+        <div id="skills-wrap">
+          <div style="margin-bottom:12px">
+            <div style="font-size:12px;color:var(--c-muted);margin-bottom:6px">Languages</div>
+            <span class="skill-chip"><span style="width:6px;height:6px;border-radius:50%;background:var(--c-green);display:inline-block"></span>Java</span>
+            <span class="skill-chip"><span style="width:6px;height:6px;border-radius:50%;background:var(--c-green);display:inline-block"></span>Python</span>
+            <span class="skill-chip"><span style="width:6px;height:6px;border-radius:50%;background:var(--c-amber);display:inline-block"></span>C++</span>
+            <span class="skill-chip"><span style="width:6px;height:6px;border-radius:50%;background:var(--c-green);display:inline-block"></span>JavaScript</span>
+          </div>
+          <div style="margin-bottom:12px">
+            <div style="font-size:12px;color:var(--c-muted);margin-bottom:6px">Frameworks &amp; Tools</div>
+            <span class="skill-chip"><span style="width:6px;height:6px;border-radius:50%;background:var(--c-green);display:inline-block"></span>Spring Boot</span>
+            <span class="skill-chip"><span style="width:6px;height:6px;border-radius:50%;background:var(--c-amber);display:inline-block"></span>React</span>
+            <span class="skill-chip"><span style="width:6px;height:6px;border-radius:50%;background:var(--c-amber);display:inline-block"></span>Node.js</span>
+            <span class="skill-chip"><span style="width:6px;height:6px;border-radius:50%;background:var(--c-green);display:inline-block"></span>MySQL</span>
+          </div>
+          <div>
+            <div style="font-size:12px;color:var(--c-muted);margin-bottom:6px">Core CS</div>
+            <span class="skill-chip"><span style="width:6px;height:6px;border-radius:50%;background:var(--c-green);display:inline-block"></span>DSA</span>
+            <span class="skill-chip"><span style="width:6px;height:6px;border-radius:50%;background:var(--c-amber);display:inline-block"></span>OS</span>
+            <span class="skill-chip"><span style="width:6px;height:6px;border-radius:50%;background:var(--c-amber);display:inline-block"></span>DBMS</span>
+            <span class="skill-chip"><span style="width:6px;height:6px;border-radius:50%;background:var(--c-red);display:inline-block"></span>CN</span>
+          </div>
+        </div>
+
+        <!-- Legend -->
+        <div style="margin-top:12px;display:flex;gap:10px;font-size:11px;color:var(--c-muted);align-items:center;flex-wrap:wrap">
+          <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:50%;background:var(--c-green);display:inline-block"></span>Strong</span>
+          <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:50%;background:var(--c-amber);display:inline-block"></span>Learning</span>
+          <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:50%;background:var(--c-red);display:inline-block"></span>Weak</span>
+        </div>
+
+        <div class="input-row">
+          <input class="inp" id="skill-inp" placeholder="Add skill..." />
+          <button class="btn" onclick="addSkill()">Add</button>
+        </div>
+      </div>
+
+      <!-- Git Projects Panel -->
+      <div class="card">
+        <div class="section-title">Git Projects</div>
+
+        <div id="project-list">
+          <div class="card-inner">
+            <div style="font-size:14px;font-weight:500;display:flex;align-items:center;justify-content:space-between">
+              E-Commerce REST API <span class="badge badge-green">Live</span>
+            </div>
+            <div style="font-size:12px;color:var(--c-muted);margin-top:4px;line-height:1.5">
+              Full-stack Spring Boot REST API with JWT auth, CRUD, MySQL
+            </div>
+            <div class="tag-row">
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">Spring Boot</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">JWT</span>
+            </div>
+          </div>
+
+          <div class="card-inner">
+            <div style="font-size:14px;font-weight:500;display:flex;align-items:center;justify-content:space-between">
+              Portfolio Website <span class="badge badge-amber">WIP</span>
+            </div>
+            <div style="font-size:12px;color:var(--c-muted);margin-top:4px;line-height:1.5">
+              Personal portfolio with React, deployed on Vercel
+            </div>
+            <div class="tag-row">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">TailwindCSS</span>
+              <span class="tech-tag">Vercel</span>
+            </div>
+          </div>
+
+          <div class="card-inner">
+            <div style="font-size:14px;font-weight:500;display:flex;align-items:center;justify-content:space-between">
+              DSA Visualizer <span class="badge badge-green">Done</span>
+            </div>
+            <div style="font-size:12px;color:var(--c-muted);margin-top:4px;line-height:1.5">
+              Interactive visualizations for sorting &amp; tree algorithms
+            </div>
+            <div class="tag-row">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Canvas API</span>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-sm" style="width:100%;margin-top:4px">+ Add Project</button>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
