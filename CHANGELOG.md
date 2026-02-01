@@ -101,3 +101,4 @@
 [2026-02-28 17:00] chore: final clean-up before v1.0 tag
 
 [2026-02-01 09:15] chore: init project scaffolding and base config
+[2026-02-01 14:30] feat: add dashboard layout skeleton
