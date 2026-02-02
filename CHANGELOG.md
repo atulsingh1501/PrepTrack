@@ -102,3 +102,4 @@
 
 [2026-02-01 09:15] chore: init project scaffolding and base config
 [2026-02-01 14:30] feat: add dashboard layout skeleton
+[2026-02-02 10:05] feat: implement JWT auth middleware
