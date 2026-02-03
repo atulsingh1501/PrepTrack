@@ -105,3 +105,4 @@
 [2026-02-02 10:05] feat: implement JWT auth middleware
 [2026-02-02 16:45] fix: resolve CORS config for localhost origins
 [2026-02-03 09:00] feat: add User mongoose schema with bcrypt hashing
+[2026-02-03 13:20] feat: create auth routes for register and login
