@@ -107,3 +107,4 @@
 [2026-02-03 09:00] feat: add User mongoose schema with bcrypt hashing
 [2026-02-03 13:20] feat: create auth routes for register and login
 [2026-02-04 11:10] feat: build LeetCode tracker model and routes
+[2026-02-04 17:55] style: add glassmorphism card styles to dashboard
