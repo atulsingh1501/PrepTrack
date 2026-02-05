@@ -109,3 +109,4 @@
 [2026-02-04 11:10] feat: build LeetCode tracker model and routes
 [2026-02-04 17:55] style: add glassmorphism card styles to dashboard
 [2026-02-05 08:30] feat: add Task model with due-date and reminder fields
+[2026-02-05 15:00] feat: implement CRUD routes for daily tasks
