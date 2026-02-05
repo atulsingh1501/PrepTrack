@@ -108,3 +108,4 @@
 [2026-02-03 13:20] feat: create auth routes for register and login
 [2026-02-04 11:10] feat: build LeetCode tracker model and routes
 [2026-02-04 17:55] style: add glassmorphism card styles to dashboard
+[2026-02-05 08:30] feat: add Task model with due-date and reminder fields
