@@ -112,3 +112,4 @@
 [2026-02-05 15:00] feat: implement CRUD routes for daily tasks
 [2026-02-06 10:40] feat: Goals module schema and REST API
 [2026-02-06 19:05] fix: handle 404 on non-existent goal update
+[2026-02-07 09:20] feat: Skills inventory model with strong/learning/weak levels
