@@ -114,3 +114,4 @@
 [2026-02-06 19:05] fix: handle 404 on non-existent goal update
 [2026-02-07 09:20] feat: Skills inventory model with strong/learning/weak levels
 [2026-02-07 14:10] refactor: centralise error handler in server.js
+[2026-02-08 11:00] feat: Resources Study Hub model and CRUD routes
