@@ -118,3 +118,4 @@
 [2026-02-09 09:35] feat: Profiles module for coding platform links
 [2026-02-09 16:25] chore: add .env.example with all required keys
 [2026-02-10 10:15] feat: setup Vite + React + Tailwind client
+[2026-02-10 14:50] feat: configure React Router with protected routes
