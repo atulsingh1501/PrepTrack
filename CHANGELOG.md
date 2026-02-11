@@ -120,3 +120,4 @@
 [2026-02-10 10:15] feat: setup Vite + React + Tailwind client
 [2026-02-10 14:50] feat: configure React Router with protected routes
 [2026-02-11 09:00] feat: Login and Register pages with form validation
+[2026-02-11 15:30] feat: add Zustand auth store with JWT persistence
