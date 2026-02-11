@@ -119,3 +119,4 @@
 [2026-02-09 16:25] chore: add .env.example with all required keys
 [2026-02-10 10:15] feat: setup Vite + React + Tailwind client
 [2026-02-10 14:50] feat: configure React Router with protected routes
+[2026-02-11 09:00] feat: Login and Register pages with form validation
