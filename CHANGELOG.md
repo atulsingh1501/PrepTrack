@@ -122,3 +122,4 @@
 [2026-02-11 09:00] feat: Login and Register pages with form validation
 [2026-02-11 15:30] feat: add Zustand auth store with JWT persistence
 [2026-02-12 10:20] feat: Dashboard page with stats cards and activity graph
+[2026-02-12 17:10] feat: integrate Recharts bar chart on dashboard
