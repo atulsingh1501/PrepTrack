@@ -126,3 +126,4 @@
 [2026-02-13 09:45] feat: Agenda page with task list toggle and delete
 [2026-02-13 14:00] fix: task completion state not persisting on refresh
 [2026-02-14 10:30] feat: LeetCode tracker UI with filters and difficulty badges
+[2026-02-14 16:55] style: add heatmap calendar component to dashboard
