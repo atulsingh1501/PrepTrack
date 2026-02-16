@@ -129,3 +129,4 @@
 [2026-02-14 16:55] style: add heatmap calendar component to dashboard
 [2026-02-15 09:10] feat: Goals page with readiness ring and progress bars
 [2026-02-16 10:05] feat: StudyHub page with resource cards by category
+[2026-02-16 15:40] fix: resource link opening in new tab
