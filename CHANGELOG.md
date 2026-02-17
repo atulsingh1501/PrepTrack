@@ -130,3 +130,4 @@
 [2026-02-15 09:10] feat: Goals page with readiness ring and progress bars
 [2026-02-16 10:05] feat: StudyHub page with resource cards by category
 [2026-02-16 15:40] fix: resource link opening in new tab
+[2026-02-17 09:30] feat: PlatformTrackers page with profile cards grid
