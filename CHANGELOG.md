@@ -133,3 +133,4 @@
 [2026-02-17 09:30] feat: PlatformTrackers page with profile cards grid
 [2026-02-17 13:50] feat: InterviewBoard kanban layout with status columns
 [2026-02-18 10:00] refactor: extract API helper into src/api/index.js
+[2026-02-18 16:20] chore: add axios interceptor for auth token injection
