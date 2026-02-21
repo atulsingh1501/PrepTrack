@@ -137,3 +137,4 @@
 [2026-02-19 09:15] feat: react-hot-toast notifications for all mutations
 [2026-02-19 14:35] style: responsive sidebar nav with active link highlight
 [2026-02-20 10:45] fix: JWT expiry edge-case causing silent logout
+[2026-02-21 09:00] feat: weekly task overview chart on Agenda page
