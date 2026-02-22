@@ -140,3 +140,4 @@
 [2026-02-21 09:00] feat: weekly task overview chart on Agenda page
 [2026-02-21 15:10] perf: memoize dashboard stat calculations
 [2026-02-22 10:30] style: dark-mode colour palette via Tailwind config
+[2026-02-22 17:00] fix: mobile nav overflow on small screens
