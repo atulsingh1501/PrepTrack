@@ -139,3 +139,4 @@
 [2026-02-20 10:45] fix: JWT expiry edge-case causing silent logout
 [2026-02-21 09:00] feat: weekly task overview chart on Agenda page
 [2026-02-21 15:10] perf: memoize dashboard stat calculations
+[2026-02-22 10:30] style: dark-mode colour palette via Tailwind config
