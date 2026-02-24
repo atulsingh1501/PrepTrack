@@ -142,3 +142,4 @@
 [2026-02-22 10:30] style: dark-mode colour palette via Tailwind config
 [2026-02-22 17:00] fix: mobile nav overflow on small screens
 [2026-02-23 09:20] docs: add inline JSDoc comments to all store files
+[2026-02-24 10:00] test: QA pass on auth flow and protected routes
