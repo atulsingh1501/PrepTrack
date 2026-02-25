@@ -145,3 +145,4 @@
 [2026-02-24 10:00] test: QA pass on auth flow and protected routes
 [2026-02-24 15:30] fix: goals progress ring SVG stroke calculation
 [2026-02-25 09:40] feat: add search and filter bar to LeetCode tracker
+[2026-02-25 16:05] refactor: split App.jsx into layout and router components
