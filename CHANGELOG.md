@@ -149,3 +149,4 @@
 [2026-02-26 10:10] style: polished card hover animations and transitions
 [2026-02-27 09:30] feat: interview board status update buttons
 [2026-02-27 15:45] chore: update README with full MERN stack documentation
+[2026-02-28 10:20] fix: minor UI alignment fixes across all pages
