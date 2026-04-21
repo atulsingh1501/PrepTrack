@@ -159,7 +159,8 @@ Make sure you have the following installed on your machine:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/<your-username>/PrepTrack.git
+git clone https://github.com/atulsingh1501/PrepTrack
+
 cd PrepTrack
 
 # 2. Install ALL dependencies (root + client + backend) in one shot
