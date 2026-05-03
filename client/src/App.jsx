@@ -14,6 +14,7 @@ import Agenda from './pages/Agenda';
 import InterviewBoard from './pages/InterviewBoard';
 import StudyHub from './pages/StudyHub';
 import Goals from './pages/Goals';
+import LeetCodeTracker from './pages/LeetCodeTracker';
 
 // Run interceptor setup
 setupInterceptors(useAuthStore);
@@ -49,6 +50,7 @@ function App() {
           {/* Protected Routes */}
           <Route element={<ProtectedRoute />}>
             <Route path="/" element={<Dashboard />} />
+            <Route path="/leetcode" element={<LeetCodeTracker />} />
             <Route path="/trackers" element={<PlatformTrackers />} />
             <Route path="/agenda" element={<Agenda />} />
             <Route path="/interviews" element={<InterviewBoard />} />

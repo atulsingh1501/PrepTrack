@@ -9,7 +9,7 @@ export const getResources = async (req, res) => {
 
 export const createResource = async (req, res) => {
   try {
-    const { title, url, type, topic } = req.body;
+    const { title, url, type, category, content } = req.body;
     let filePath = '';
     
     // If a local file is uploaded via multer
@@ -18,7 +18,7 @@ export const createResource = async (req, res) => {
     }
 
     const resource = await Resource.create({
-      user: req.user._id, title, url, type, topic, filePath
+      user: req.user._id, title, url, type, category, content, filePath
     });
     res.status(201).json(resource);
   } catch (error) { res.status(500).json({ message: error.message }); }

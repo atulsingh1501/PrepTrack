@@ -1,14 +1,18 @@
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import useAuthStore from '../store/useAuthStore';
-import Sidebar from './Sidebar';
+import AppLayout from './AppLayout';
+import { Loader2 } from 'lucide-react';
 
 const ProtectedRoute = () => {
   const { isAuthenticated, isCheckingAuth } = useAuthStore();
 
   if (isCheckingAuth) {
     return (
-      <div className="min-h-screen bg-dark-900 flex items-center justify-center">
-        <div className="w-10 h-10 border-4 border-primary-500 border-t-transparent rounded-full animate-spin"></div>
+      <div className="min-h-screen bg-dark-950 flex flex-col items-center justify-center gap-4">
+        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-primary-500 flex items-center justify-center shadow-glow-indigo">
+          <Loader2 className="w-5 h-5 text-white animate-spin" />
+        </div>
+        <p className="text-gray-500 text-sm animate-pulse">Loading PrepTrack…</p>
       </div>
     );
   }
@@ -17,14 +21,7 @@ const ProtectedRoute = () => {
     return <Navigate to="/login" replace />;
   }
 
-  return (
-    <div className="flex bg-dark-900 min-h-screen">
-      <Sidebar />
-      <div className="flex-1 ml-64 overflow-x-hidden relative">
-        <Outlet />
-      </div>
-    </div>
-  );
+  return <AppLayout />;
 };
 
 export default ProtectedRoute;

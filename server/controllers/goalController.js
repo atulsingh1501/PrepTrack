@@ -2,7 +2,7 @@ import Goal from '../models/Goal.js';
 
 export const getGoals = async (req, res) => {
   try {
-    const goals = await Goal.find({ user: req.user._id }).sort({ targetDate: 1 });
+    const goals = await Goal.find({ user: req.user._id }).sort({ dueDate: 1 });
     res.json(goals);
   } catch (error) { res.status(500).json({ message: error.message }); }
 };

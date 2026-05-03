@@ -23,12 +23,13 @@ const useGoalStore = create((set) => ({
     } catch (error) { toast.error('Failed to add goal'); }
   },
 
-  updateProgress: async (id, newProgress) => {
+  updateGoal: async (id, data) => {
     try {
-      const res = await api.put(`/goals/${id}`, { progress: newProgress });
-      set((state) => ({ goals: state.goals.map(g => g._id === id ? res.data : g) }));
-      toast.success('Progress updated');
-    } catch (error) { toast.error('Failed to update progress'); }
+      const res = await api.put(`/goals/${id}`, data);
+      set((state) => ({
+        goals: state.goals.map(g => g._id === id ? res.data : g)
+      }));
+    } catch (error) { toast.error('Failed to update goal'); }
   },
 
   deleteGoal: async (id) => {
@@ -39,4 +40,5 @@ const useGoalStore = create((set) => ({
     } catch (error) { toast.error('Failed to delete goal'); }
   }
 }));
+
 export default useGoalStore;

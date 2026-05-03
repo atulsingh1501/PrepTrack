@@ -12,6 +12,10 @@ import interviewRoutes from './routes/interviewRoutes.js';
 import resourceRoutes from './routes/resourceRoutes.js';
 import noteRoutes from './routes/noteRoutes.js';
 import goalRoutes from './routes/goalRoutes.js';
+import leetcodeRoutes from './routes/leetcodeRoutes.js';
+import skillRoutes from './routes/skillRoutes.js';
+import projectRoutes from './routes/projectRoutes.js';
+import profileRoutes from './routes/profileRoutes.js';
 
 // Load env vars
 dotenv.config();
@@ -45,6 +49,10 @@ app.use('/api/interviews', interviewRoutes);
 app.use('/api/resources', resourceRoutes);
 app.use('/api/notes', noteRoutes);
 app.use('/api/goals', goalRoutes);
+app.use('/api/leetcode', leetcodeRoutes);
+app.use('/api/skills', skillRoutes);
+app.use('/api/projects', projectRoutes);
+app.use('/api/profiles', profileRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
