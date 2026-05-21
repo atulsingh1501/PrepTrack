@@ -8,6 +8,7 @@
   <img src="https://img.shields.io/badge/MongoDB-Mongoose-47A248?style=for-the-badge&logo=mongodb&logoColor=white" />
   <img src="https://img.shields.io/badge/Vite-5-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
   <img src="https://img.shields.io/badge/TailwindCSS-3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  <img src="https://img.shields.io/badge/Zustand-State-FF6B35?style=for-the-badge&logo=react&logoColor=white" />
 </p>
 
 ---
@@ -36,13 +37,14 @@
 PrepTrack is a **full-stack MERN application** built specifically for students preparing for campus placements and tech job interviews. Instead of juggling spreadsheets, Notion pages, and random sticky notes, PrepTrack brings everything into a single authenticated platform:
 
 - Visualise your overall placement readiness at a glance
-- Log every LeetCode / DSA problem you solve
+- Log every LeetCode / DSA problem you solve with difficulty and topic tagging
 - Keep a live skill inventory across DSA, dev stacks, and core CS subjects
 - Manage a daily agenda with persistent task tracking
-- Store study resources (PDFs, links, notes) organised by category
+- Store study resources (links, notes) organised by category
 - Set measurable placement goals and watch your progress ring fill up
 - Track your coding profiles (LeetCode, GitHub, Codeforces, etc.)
-- Prepare for interviews with a structured mock-interview board
+- Prepare for interviews with a structured mock-interview kanban board
+- Manage personal projects linked to GitHub repos
 
 ---
 
@@ -50,15 +52,15 @@ PrepTrack is a **full-stack MERN application** built specifically for students p
 
 | Module | What it does |
 |---|---|
-| 🏠 **Dashboard** | Aggregated stats, topic heatmap, activity graph, AI readiness suggestions |
-| 🧩 **LeetCode Tracker** | Log Easy / Medium / Hard problems, set weekly targets, filter by topic/status |
-| 🛠️ **Skills & Git** | Rate skills as Strong / Learning / Weak; link GitHub project repos |
-| 📅 **Daily Agenda** | Add, complete & delete tasks; set reminders; see a weekly overview |
-| 📚 **Study Hub** | Upload & manage PDFs, external links, and rich-text notes per subject |
-| 🎯 **Goals** | Define placement goals (CTC target, company list, interview rounds); animated readiness ring |
-| 👤 **Platform Trackers** | Sync coding profile stats from LeetCode, GitHub, Codeforces, GeeksForGeeks |
-| 🎙️ **Interview Board** | Kanban-style tracking of mock interviews — scheduled, done, feedback |
-| 🔐 **Auth** | JWT-based registration, login & protected routes; passwords hashed with bcrypt |
+| 🏠 **Dashboard** | Aggregated stats, activity graph, readiness overview |
+| 🧩 **LeetCode Tracker** | Log Easy / Medium / Hard problems, filter by topic/status, view counts |
+| 🛠️ **Skills** | Rate skills as Strong / Learning / Weak; color-coded badges |
+| 📅 **Daily Agenda** | Add, complete & delete tasks; weekly overview |
+| 📚 **Study Hub** | Store external links and notes per subject/category |
+| 🎯 **Goals** | Define placement goals; animated circular readiness ring |
+| 👤 **Platform Trackers** | Save & quick-launch your coding profiles across platforms |
+| 🎙️ **Interview Board** | Kanban-style tracking of mock interviews — scheduled, in-progress, done |
+| 🔐 **Auth** | JWT-based registration, login & protected routes; bcrypt password hashing |
 
 ---
 
@@ -70,9 +72,9 @@ PrepTrack is a **full-stack MERN application** built specifically for students p
 |---|---|
 | **React 18** | UI library (component-based SPA) |
 | **Vite 5** | Lightning-fast dev server & bundler |
-| **React Router DOM v6** | Client-side routing |
+| **React Router DOM v6** | Client-side routing & protected routes |
 | **Tailwind CSS 3** | Utility-first styling |
-| **Recharts** | Charts & data visualisations (dashboard graphs, heatmaps) |
+| **Recharts** | Charts & data visualisations (dashboard graphs) |
 | **Zustand** | Lightweight global state management |
 | **Axios** | HTTP client for REST API calls |
 | **Lucide React** | Icon library |
@@ -97,40 +99,69 @@ PrepTrack is a **full-stack MERN application** built specifically for students p
 
 ```
 PrepTrack/                          ← Monorepo root
-├── package.json                    ← Workspace scripts (npm workspaces)
+├── package.json                    ← Workspace scripts (npm workspaces + concurrently)
+├── .gitignore
 │
-├── backend/                        ← Express REST API
+├── server/                         ← Express REST API
 │   ├── config/
 │   │   └── db.js                   ← MongoDB connection
 │   ├── middleware/
-│   │   └── auth.js                 ← JWT verify middleware
+│   │   └── authMiddleware.js        ← JWT verify middleware
 │   ├── models/                     ← Mongoose schemas
-│   ├── routes/                     ← Route handlers
-│   │   ├── auth.js                 ← POST /api/auth/register, /login
-│   │   ├── tasks.js                ← CRUD /api/tasks
-│   │   ├── leetcode.js             ← CRUD /api/leetcode
-│   │   ├── goals.js                ← CRUD /api/goals
-│   │   ├── skills.js               ← CRUD /api/skills
-│   │   ├── resources.js            ← CRUD /api/resources
-│   │   └── profiles.js             ← CRUD /api/profiles
+│   │   ├── User.js
+│   │   ├── Task.js
+│   │   ├── LeetCode.js
+│   │   ├── Goal.js
+│   │   ├── Skill.js
+│   │   ├── Resource.js
+│   │   ├── Note.js
+│   │   ├── Interview.js
+│   │   ├── Profile.js
+│   │   └── Project.js
+│   ├── controllers/                ← Business logic
+│   ├── routes/                     ← Route definitions
+│   │   ├── authRoutes.js           ← POST /api/auth/register, /login
+│   │   ├── taskRoutes.js           ← CRUD /api/tasks
+│   │   ├── leetcodeRoutes.js       ← CRUD /api/leetcode
+│   │   ├── goalRoutes.js           ← CRUD /api/goals
+│   │   ├── skillRoutes.js          ← CRUD /api/skills
+│   │   ├── resourceRoutes.js       ← CRUD /api/resources
+│   │   ├── noteRoutes.js           ← CRUD /api/notes
+│   │   ├── interviewRoutes.js      ← CRUD /api/interviews
+│   │   ├── profileRoutes.js        ← CRUD /api/profiles
+│   │   ├── projectRoutes.js        ← CRUD /api/projects
+│   │   └── trackerRoutes.js        ← /api/tracker
+│   ├── services/
+│   ├── utils/
 │   ├── server.js                   ← App entry point
-│   ├── .env.example                ← Environment template
+│   ├── .env                        ← Environment variables (not committed)
 │   └── package.json
 │
 ├── client/                         ← React + Vite frontend
 │   ├── src/
 │   │   ├── api/                    ← Axios instance & API helpers
-│   │   ├── components/             ← Reusable UI components
+│   │   ├── components/
+│   │   │   ├── Sidebar.jsx         ← Navigation sidebar
+│   │   │   ├── AppLayout.jsx       ← Main layout wrapper
+│   │   │   └── ProtectedRoute.jsx  ← Auth guard component
 │   │   ├── pages/
 │   │   │   ├── Dashboard.jsx       ← Main overview page
 │   │   │   ├── Agenda.jsx          ← Daily tasks
+│   │   │   ├── LeetCodeTracker.jsx ← Problem logger & stats
 │   │   │   ├── Goals.jsx           ← Goal setting & tracking
 │   │   │   ├── StudyHub.jsx        ← Study resources
-│   │   │   ├── PlatformTrackers.jsx← Coding profile stats
+│   │   │   ├── PlatformTrackers.jsx← Coding profile links
 │   │   │   ├── InterviewBoard.jsx  ← Mock interview kanban
 │   │   │   ├── Login.jsx           ← Auth — login
 │   │   │   └── Register.jsx        ← Auth — register
 │   │   ├── store/                  ← Zustand state stores
+│   │   │   ├── useGoalStore.js
+│   │   │   ├── useInterviewStore.js
+│   │   │   ├── useLeetcodeStore.js
+│   │   │   ├── useNoteStore.js
+│   │   │   ├── useProfileStore.js
+│   │   │   ├── useProjectStore.js
+│   │   │   └── useSkillStore.js
 │   │   ├── App.jsx                 ← Router + layout
 │   │   ├── main.jsx                ← React entry point
 │   │   └── index.css               ← Global styles
@@ -148,7 +179,7 @@ PrepTrack/                          ← Monorepo root
 
 ### Prerequisites
 
-Make sure you have the following installed on your machine:
+Make sure you have the following installed:
 
 - **Node.js** ≥ 18.x — [Download](https://nodejs.org/)
 - **npm** ≥ 9.x (comes with Node)
@@ -160,31 +191,29 @@ Make sure you have the following installed on your machine:
 ```bash
 # 1. Clone the repository
 git clone https://github.com/atulsingh1501/PrepTrack
-
 cd PrepTrack
 
-# 2. Install ALL dependencies (root + client + backend) in one shot
+# 2. Install ALL dependencies (root + client + server) in one shot
 npm install
-
-# This uses npm workspaces — it wires up both the client and backend automatically
+# Uses npm workspaces — installs dependencies for both client and server automatically
 ```
 
 ### Environment Variables
 
-The backend needs a `.env` file. Copy the example and fill in your values:
+Create a `.env` file inside the `server/` directory:
 
 ```bash
-cd backend
-cp .env.example .env
+cd server
+# Create .env and fill in your values
 ```
 
-Open `backend/.env` and set the following:
+`server/.env` should contain:
 
 ```env
-# MongoDB connection string — get this from MongoDB Atlas → Connect → Drivers
+# MongoDB connection string — from MongoDB Atlas → Connect → Drivers
 MONGO_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/preptrack?retryWrites=true&w=majority
 
-# JWT secret — change this to a long, random string in production
+# JWT secret — use a long, random string in production
 JWT_SECRET=your_super_secret_jwt_key_change_me
 
 # Port the Express server will listen on
@@ -198,26 +227,33 @@ NODE_ENV=development
 
 ### Running the App
 
-#### Option 1 — Run both servers in one terminal (recommended)
+#### Option 1 — Run both servers concurrently (recommended)
 
 ```bash
-# From the root of the project
+# From the monorepo root
 npm run dev
 ```
 
-This starts **both** the backend (port 5000) and the frontend (port 5173) concurrently.
+This starts **both** the backend (port 5000) and the frontend (port 5173) side by side.
 
 #### Option 2 — Run servers separately
 
 ```bash
 # Terminal 1 — Backend
-cd backend
-npm run dev         # nodemon watches for file changes
+npm run dev:server       # or: cd server && npm run dev
 
 # Terminal 2 — Frontend
-cd client
-npm run dev         # Vite dev server with HMR
+npm run dev:client       # or: cd client && npm run dev
 ```
+
+#### Available root scripts
+
+| Script | Description |
+|---|---|
+| `npm run dev` | Start both client + server concurrently |
+| `npm run dev:client` | Start frontend only (Vite) |
+| `npm run dev:server` | Start backend only (nodemon) |
+| `npm run build` | Build client for production |
 
 #### Verify it's working
 
@@ -287,9 +323,27 @@ Authorization: Bearer <your_jwt_token>
 | Method | Endpoint | Description |
 |---|---|---|
 | `GET` | `/api/resources` | Get all study resources |
-| `POST` | `/api/resources` | Add a resource (PDF / link / note) |
+| `POST` | `/api/resources` | Add a resource (link / note) |
 | `PUT` | `/api/resources/:id` | Edit a resource |
 | `DELETE` | `/api/resources/:id` | Delete a resource |
+
+### Notes
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/notes` | Get all notes |
+| `POST` | `/api/notes` | Create a note |
+| `PUT` | `/api/notes/:id` | Update a note |
+| `DELETE` | `/api/notes/:id` | Delete a note |
+
+### Interviews
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/interviews` | Get all interview entries |
+| `POST` | `/api/interviews` | Log a new mock interview |
+| `PUT` | `/api/interviews/:id` | Update status / feedback |
+| `DELETE` | `/api/interviews/:id` | Delete an entry |
 
 ### Coding Profiles
 
@@ -300,51 +354,59 @@ Authorization: Bearer <your_jwt_token>
 | `PUT` | `/api/profiles/:id` | Update a profile |
 | `DELETE` | `/api/profiles/:id` | Remove a profile |
 
+### Projects
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/projects` | Get all projects |
+| `POST` | `/api/projects` | Add a project |
+| `PUT` | `/api/projects/:id` | Update a project |
+| `DELETE` | `/api/projects/:id` | Remove a project |
+
 ---
 
 ## 🖥️ Pages & Modules
 
 ### 🏠 Dashboard
 The central hub. Shows:
-- Total tasks done, LeetCode problems solved (by difficulty), active goals
-- A calendar heatmap of daily activity
-- A bar/line chart of weekly problem-solving trends
-- AI-style readiness suggestions based on your current data
+- Total tasks done, LeetCode problems solved by difficulty, active goals count
+- Activity graph and readiness overview
+- Quick navigation to all modules
 
 ### 📅 Agenda (Daily Tasks)
-- Add tasks with optional due dates and reminders
-- One-click completion toggle with strikethrough animation
-- Weekly task overview to spot your busiest days
-- Tasks are persisted per user in MongoDB
+- Add tasks with titles and completion toggle
+- One-click completion with strikethrough animation
+- Weekly task overview
+- Tasks persisted per user in MongoDB
 
 ### 🧩 LeetCode Tracker
 - Log each problem with: title, difficulty (Easy / Medium / Hard), topic tag, status (Solved / Revisit / Skip)
 - Filter the list by difficulty or topic
-- Visual counters and target-progress bars
+- Visual counters for solved problems per difficulty level
 
-### 🛠️ Skills & Git
-- Maintain a personal skill inventory (e.g., "React → Strong", "OS → Learning")
-- Link your GitHub projects with repo URLs and descriptions
-- Color-coded badges for skill strength levels
+### 🛠️ Skills
+- Maintain a personal skill inventory (e.g., `React → Strong`, `OS → Learning`)
+- Color-coded badges for skill strength: Strong / Learning / Weak
+- Add and manage skills across DSA, dev stack, and core CS
 
 ### 📚 Study Hub
-- Upload PDFs (stored as references), external links, or rich-text notes
-- Organised by category: DSA, Core CS (OS/CN/DBMS), HR prep, System Design
-- Quick-search and filter by category
+- Store external links and notes organised by subject/category
+- Categories: DSA, Core CS (OS / CN / DBMS), HR Prep, System Design
+- Quick search and filter by category
 
 ### 🎯 Goals
-- Set SMART placement goals (e.g., "Apply to 20 companies by May")
+- Set SMART placement goals (e.g., "Apply to 20 companies by June")
 - Track numeric progress with an animated circular readiness ring
-- Completion percentage is calculated automatically
+- Completion percentage calculated automatically
 
 ### 👤 Platform Trackers
 - Save your profiles on LeetCode, GitHub, Codeforces, GeeksForGeeks, HackerRank
-- Quick-launch links to each platform from a single page
+- Quick-launch links to each platform from one page
 
 ### 🎙️ Interview Board
 - Kanban-style board with columns: Scheduled / In Progress / Done
 - Log mock interview details (company, round, date, feedback)
-- Drag-and-drop style status updates
+- Status update buttons to move entries across columns
 
 ---
 
@@ -356,13 +418,12 @@ The central hub. Shows:
 # Build the production bundle
 cd client
 npm run build
-
-# Or connect your GitHub repo to Vercel and it auto-deploys on every push
+# Connect your GitHub repo to Vercel — it auto-deploys on every push
 ```
 
 Set the **Root Directory** to `client` and the **Build Command** to `npm run build` in Vercel's settings.
 
-Don't forget to add `VITE_API_URL` as an environment variable pointing to your deployed backend URL:
+Add `VITE_API_URL` as an environment variable pointing to your deployed backend:
 
 ```env
 VITE_API_URL=https://your-backend.onrender.com
@@ -372,10 +433,10 @@ VITE_API_URL=https://your-backend.onrender.com
 
 1. Create a new **Web Service** on [Render](https://render.com/)
 2. Connect your GitHub repo
-3. Set **Root Directory** to `backend`
+3. Set **Root Directory** to `server`
 4. Set **Build Command** to `npm install`
 5. Set **Start Command** to `node server.js`
-6. Add all environment variables from your `.env` file in Render's dashboard
+6. Add all environment variables from your `.env` in Render's dashboard
 
 ### Alternative Platforms
 
@@ -384,7 +445,7 @@ VITE_API_URL=https://your-backend.onrender.com
 | **Netlify** | ✅ Static deploy from `/client/dist` | ❌ Need separate backend host |
 | **Railway** | ✅ | ✅ Full-stack support |
 | **Heroku** | ✅ | ✅ Full-stack support |
-| **GitHub Pages** | ✅ (static only, no SSR) | ❌ |
+| **GitHub Pages** | ✅ (static only) | ❌ |
 
 ---
 
