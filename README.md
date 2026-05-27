@@ -1,7 +1,6 @@
 # 📋 PrepTrack — Placement Preparation Tracker
 
-> **Your all-in-one MERN stack companion to crack placements.** Track your LeetCode grind, manage daily tasks, monitor skills, store resources, set goals, and visualise your readiness — all from one sleek dashboard.
-
+> **Your all-in-one MERN stack companion to crack placements.** PrepTrack is a full-stack MERN application built for students preparing for campus placements and tech job interviews. It replaces scattered spreadsheets and notes with a single authenticated platform where you can log LeetCode/DSA problems by difficulty and topic, manage a daily task agenda, maintain a skill inventory, store study resources (PDFs, links, notes), set measurable placement goals with an animated readiness tracker, and manage mock interviews on a Kanban board. Built with React 18, Vite, Tailwind CSS, Node.js, Express, MongoDB Atlas, and JWT authentication.
 <p align="center">
   <img src="https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white" />
   <img src="https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js&logoColor=white" />
